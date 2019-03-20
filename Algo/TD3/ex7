@@ -1,0 +1,42 @@
+import java.util.LinkedList;
+
+public class MyStack<E> {
+
+	private LinkedList<E> MyLinkedList = new LinkedList<E>();
+	
+	
+	/* tests if the stack is empty , reuses the method from LinkedList */
+	
+	public boolean empty() {
+		return MyLinkedList.isEmpty();
+	}
+	
+	/* adds at top of the Stack the item in parameter */
+	public E push(E myItem) {
+		MyLinkedList.add(myItem); // adds at the end of the List
+		return myItem; /* returns the item added */
+	}
+
+	/* removes the item at top of the Stack and returns it */
+	public E pop() {
+		E removed;
+		removed= MyLinkedList.get(MyLinkedList.size()-1); /* back up of the last item that will be removed to return it */
+		MyLinkedList.remove(MyLinkedList.size()-1); // gets the index of the last item and removes it
+		return removed; /* returns the item added */
+	}
+	
+	/* returns the item at the top of the Stack */
+	public E peek() {
+		return MyLinkedList.get(MyLinkedList.size()-1); /* returns the item added */
+	}
+	
+	public String toString()
+	{
+		String s;
+		s="contenu de la pile : [";
+		for (E item : MyLinkedList )
+			s=s+ " " + item;
+		s=s+ " ]";
+		return s;
+	}
+}
